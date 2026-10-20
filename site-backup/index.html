@@ -954,40 +954,48 @@
     .blog-post-excerpt{color:var(--muted);font-size:15px;line-height:1.75;margin:0 0 18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
     .blog-readmore{background:none;border:0;border-bottom:1px solid #AE8F59;padding:0 0 2px;font-size:13.333px;font-weight:600;letter-spacing:.04em;color:#071836;cursor:pointer;align-self:flex-start;margin-top:auto}
     .blog-readmore:hover,.blog-readmore:focus-visible{color:#7A5E2F}
-    .blog-full{border-top:1px solid var(--line);margin-top:22px;padding-top:24px}
-    .blog-full[hidden]{display:none}
     .blog-body{font-size:15px;line-height:1.8;color:var(--ink)}
     .blog-body p{color:var(--muted);margin:0 0 14px}
     .blog-body h2,.blog-body h3{margin:22px 0 10px}
     .blog-body ul,.blog-body ol{color:var(--muted);margin:0 0 14px;padding-left:20px}
     .blog-body a{color:#071836;font-weight:500;text-decoration-color:#AE8F59;text-underline-offset:4px}
     .blog-body img{max-width:100%;height:auto;margin:18px 0}
-    .blog-post-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-    .blog-related{margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
-    .blog-related p{font-size:13.333px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);margin:0 0 10px}
-    .blog-related ul{list-style:none;margin:0;padding:0}
-    .blog-related li{border-top:1px solid var(--line)}
-    .blog-related button{display:block;width:100%;background:none;border:0;padding:11px 0;font-size:14px;font-weight:500;color:#071836;text-align:left;cursor:pointer}
-    .blog-related button:hover,.blog-related button:focus-visible{color:#7A5E2F}
     .blog-cta-band{margin-top:64px}
-    /* Blog: full post view restores the wide reading layout */
+    /* Blog language switch (grid and article pages) */
+    .blog-lang-row{display:flex;justify-content:flex-end;margin:0 0 26px}
+    .blog-lang-switch{display:inline-flex;border:1px solid #AE8F59;background:var(--surface)}
+    .blog-lang-switch button{appearance:none;background:transparent;border:0;padding:8px 18px;font:inherit;font-size:13.333px;font-weight:600;letter-spacing:.05em;color:#071836;cursor:pointer}
+    .blog-lang-switch button:hover,.blog-lang-switch button:focus-visible{color:#7A5E2F}
+    .blog-lang-switch button.is-active{background:#071836;color:#fff}
+    .blog-lang-switch button.is-active:hover,.blog-lang-switch button.is-active:focus-visible{background:#7A5E2F;color:#fff}
+    /* Blog article: narrow centered reading column */
+    .blog-article{display:none}
     .blog-list.is-post-mode{grid-template-columns:1fr}
-    .blog-list.is-post-mode .blog-post.is-current{display:grid;grid-template-columns:340px minmax(0,1fr);cursor:default}
+    .blog-list.is-post-mode .blog-post.is-current{display:block;max-width:740px;margin:0 auto;border:0;background:transparent;cursor:default}
     .blog-list.is-post-mode .blog-post.is-current:hover,.blog-list.is-post-mode .blog-post.is-current:focus-within{transform:none;box-shadow:none}
-    .blog-list.is-post-mode .blog-post.is-current .blog-post-media{height:auto;min-height:220px}
-    .blog-list.is-post-mode .blog-post.is-current .blog-post-body{padding:36px 38px;display:block}
-    .blog-list.is-post-mode .blog-post.is-current .blog-post-title{font-size:31px;margin-bottom:12px}
-    .blog-list.is-post-mode .blog-post.is-current:hover .blog-post-overlay{opacity:1}
-    .blog-list.is-post-mode .blog-post.is-current:hover .blog-post-media img{filter:brightness(.55)}
-    .blog-list.is-post-mode .blog-post.is-current .blog-post-excerpt{display:block;-webkit-line-clamp:none;overflow:visible}
+    .blog-list.is-post-mode .blog-post.is-current>.blog-post-media,.blog-list.is-post-mode .blog-post.is-current>.blog-post-body{display:none}
+    .blog-list.is-post-mode .blog-post.is-current .blog-article{display:block}
+    #view-blog.is-article .section-head{display:none}
+    #view-blog.is-article .blog-cta-band{display:none}
+    #view-blog.is-article .blog-lang-row,#view-blog.is-article .blog-back{max-width:740px;margin-left:auto;margin-right:auto}
+    .blog-article-kicker{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;color:var(--gold-text);font-size:13.333px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin:0 0 18px}
+    .blog-article-title{font-size:clamp(31px,4.6vw,44px);line-height:1.16;color:#071836;margin:0 0 30px}
+    .blog-article-hero{margin:0 0 36px;aspect-ratio:16/9;overflow:hidden;background:var(--soft)}
+    .blog-article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .blog-article-hero.is-placeholder{background:#071836;display:flex;align-items:center;justify-content:center;padding:30px}
+    .blog-article-hero.is-placeholder img{object-fit:contain;width:auto;height:auto;max-width:70%;max-height:70%}
+    .blog-article .blog-body{font-size:17px;line-height:1.85}
+    .blog-article .blog-body p{color:var(--ink);margin:0 0 22px}
+    .blog-article .blog-body ul,.blog-article .blog-body ol{color:var(--ink)}
+    .blog-article-cta{margin-top:46px}
+    .blog-related-v2{margin-top:44px;border-top:1px solid var(--line);padding-top:28px}
+    .blog-related-v2>p{font-size:13.333px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);margin:0 0 18px}
+    .blog-related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
     @media(max-width:1020px){
       .blog-list{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
-    @media(max-width:740px){
-      .blog-list.is-post-mode .blog-post.is-current{grid-template-columns:1fr}
-      .blog-list.is-post-mode .blog-post.is-current .blog-post-media{height:220px;min-height:0}
-      .blog-list.is-post-mode .blog-post.is-current .blog-post-body{padding:26px 22px}
-      .blog-list.is-post-mode .blog-post.is-current .blog-post-title{font-size:26px}
+    @media(max-width:640px){
+      .blog-article .blog-body{font-size:16px}
     }
     @media(max-width:640px){
       .blog-list{grid-template-columns:1fr}
@@ -1050,6 +1058,27 @@
     .chat-form>button{background:#071836;color:#fff;border:0;padding:0 18px;font:inherit;font-weight:600;cursor:pointer}
     .chat-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
     @media(max-width:640px){.chat-fab{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));padding:12px 15px}.chat-panel{right:16px;bottom:calc(74px + env(safe-area-inset-bottom,0px))}}
+    /* Homepage scroll animation system.
+       Content is visible by default. The hidden start states below apply only
+       when the reveal script has armed the page by adding .rv-on to <html>,
+       so nothing can stay hidden if JavaScript or IntersectionObserver fails. */
+    html.rv-on .rv{opacity:0;transition:opacity .95s cubic-bezier(.22,.8,.24,1),transform .95s cubic-bezier(.22,.8,.24,1)}
+    html.rv-on .rv-up{transform:translateY(42px)}
+    html.rv-on .rv-left{transform:translateX(-52px)}
+    html.rv-on .rv-right{transform:translateX(52px)}
+    html.rv-on .rv.in{opacity:1;transform:none}
+    .load-in{opacity:0;animation:heroRiseIn 1.1s cubic-bezier(.22,.8,.24,1) forwards}
+    .load-in.d1{animation-delay:.1s}
+    .load-in.d2{animation-delay:.32s}
+    .load-in.d3{animation-delay:.54s}
+    .load-in.d4{animation-delay:.78s}
+    @keyframes heroRiseIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){
+      html.rv-on .rv,.load-in{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+    }
+    @media print{
+      html.rv-on .rv,.load-in{opacity:1!important;transform:none!important}
+    }
   </style>
 </head>
 <body>
@@ -1098,10 +1127,10 @@
         <img class="hero-slide slide-five" loading="lazy" src="assets/staged-kitchen-motion.png" alt="Person moving through a bright staged kitchen with a range hood over the cooktop" data-alt-en="Person moving through a bright staged kitchen with a range hood over the cooktop" data-alt-zh="一位人物走过明亮的样板厨房，炉灶上方装有油烟机" data-alt-zht="一位人物走過明亮的樣板廚房，爐灶上方裝有油煙機">
       </div>
       <div class="hero-copy">
-        <p class="kicker" data-en="Vesta Kitchen" data-zh="Vesta Kitchen" data-zht="Vesta Kitchen">Vesta Kitchen</p>
-        <h1 data-en="<span>Fresh Air,</span><strong>Fresh Living.</strong>" data-zh="<span>清新空气，</span><strong>清新生活。</strong>" data-zht="<span>清新空氣，</span><strong>清新生活。</strong>"><span>Fresh Air,</span><strong>Fresh Living.</strong></h1>
-        <p class="lead" data-en="Thoughtful ventilation for the way New York lives and cooks. Performance, quiet refinement, and local support in one considered collection." data-zh="为纽约生活与烹饪方式而设计。强劲性能、安静质感与本地支持，汇聚于一个经过深思熟虑的系列。" data-zht="為紐約生活與烹飪方式而設計。強勁性能、安靜質感與本地支持，匯聚於一個經過深思熟慮的系列。">Thoughtful ventilation for the way New York lives and cooks. Performance, quiet refinement, and local support in one considered collection.</p>
-        <div class="hero-paths">
+        <p class="kicker load-in d1" data-en="Vesta Kitchen" data-zh="Vesta Kitchen" data-zht="Vesta Kitchen">Vesta Kitchen</p>
+        <h1 class="load-in d2" data-en="<span>Fresh Air,</span><strong>Fresh Living.</strong>" data-zh="<span>清新空气，</span><strong>清新生活。</strong>" data-zht="<span>清新空氣，</span><strong>清新生活。</strong>"><span>Fresh Air,</span><strong>Fresh Living.</strong></h1>
+        <p class="lead load-in d3" data-en="Thoughtful ventilation for the way New York lives and cooks. Performance, quiet refinement, and local support in one considered collection." data-zh="为纽约生活与烹饪方式而设计。强劲性能、安静质感与本地支持，汇聚于一个经过深思熟虑的系列。" data-zht="為紐約生活與烹飪方式而設計。強勁性能、安靜質感與本地支持，匯聚於一個經過深思熟慮的系列。">Thoughtful ventilation for the way New York lives and cooks. Performance, quiet refinement, and local support in one considered collection.</p>
+        <div class="hero-paths load-in d4">
           <a class="path-cta path-dealer" href="/dealer"><strong>I&rsquo;m a Dealer</strong><span>Wholesale pricing, margins protected by MAP, and a brand your customers already ask for by name.</span></a>
           <a class="path-cta path-reno" href="https://quote.mercernco.com" target="_blank" rel="noopener"><strong>I&rsquo;m Renovating</strong><span>Tell us about your kitchen and receive a tailored package quote from our New York team.</span></a>
         </div>
@@ -1636,7 +1665,13 @@
           <p class="section-num">Blog</p>
           <div>
             <h1 id="blogPageTitle">The Mercer Journal.</h1>
-            <p class="section-intro">Practical guides on ventilation, sizing and renovation planning, plus news from Mercer &amp; Co. and Vesta Kitchen.</p>
+            <p class="section-intro" id="blogPageIntro">Practical guides on ventilation, sizing and renovation planning, plus news from Mercer &amp; Co. and Vesta Kitchen.</p>
+          </div>
+        </div>
+        <div class="blog-lang-row">
+          <div class="blog-lang-switch" role="group" aria-label="Blog language">
+            <button type="button" data-blog-lang="en" class="is-active" aria-pressed="true">EN</button>
+            <button type="button" data-blog-lang="zh" aria-pressed="false">中文</button>
           </div>
         </div>
         <p class="blog-back" id="blogBack" hidden><a href="/blog">&larr; All stories</a></p>
@@ -2233,20 +2268,20 @@
       }
       function renderPostMode(){
         var back = document.getElementById('blogBack');
-        if (!blogList) { if (back) back.hidden = true; return; }
-        var articles = Array.prototype.slice.call(blogList.querySelectorAll('.blog-post'));
+        if (!blogList) { if (back) back.hidden = true; viewBlog.classList.remove('is-article'); return; }
+        var articles = Array.prototype.filter.call(blogList.children, function(el){ return el.classList && el.classList.contains('blog-post'); });
         var postMode = currentRoute.view === 'blog' && !!currentRoute.slug;
         var found = false;
         articles.forEach(function(article){
           var match = postMode && article.getAttribute('data-slug') === currentRoute.slug;
-          if (match) { found = true; if (article._expandPost) article._expandPost(); }
-          else if (article._collapsePost) article._collapsePost();
+          if (match) found = true;
           article.hidden = postMode && !match;
           article.classList.toggle('is-current', !!match);
         });
         if (postMode && !found) articles.forEach(function(article){ article.hidden = false; });
         if (back) back.hidden = !(postMode && found);
         blogList.classList.toggle('is-post-mode', !!(postMode && found));
+        viewBlog.classList.toggle('is-article', !!(postMode && found));
       }
       function handleRoute(anchor){
         showView(routeFromPath());
@@ -2363,6 +2398,41 @@
 
       /* ---------- Blog: load posts from the feed ---------- */
       var blogList = document.getElementById('blogPosts');
+      var POSTS_ZH_FEED_URL = "https://raw.githubusercontent.com/mercernco/mercer-blog-feed/main/posts-zh.json";
+      var BLOG_LANG_KEY = 'mercerBlogLang';
+      var BLOG_TEXT = {
+        en: {
+          pageTitle: 'The Mercer Journal.',
+          pageIntro: 'Practical guides on ventilation, sizing and renovation planning, plus news from Mercer & Co. and Vesta Kitchen.',
+          journal: 'The Mercer Journal',
+          allStories: 'All stories',
+          readMore: 'Read more',
+          related: 'Related stories',
+          loading: 'Loading stories.',
+          comingSoon: 'New stories coming soon.',
+          ctaTitle: 'Get the right hood for your kitchen.',
+          ctaBody: 'Tell us how you cook and how your kitchen is laid out, and we will match you with the right Vesta range hood and send a tailored quote.',
+          ctaButton: 'Get a range hood quote'
+        },
+        zh: {
+          pageTitle: '美世日誌',
+          pageIntro: '通風、尺寸選擇與裝修規劃的實用指南，以及 Mercer & Co. 與 Vesta Kitchen 的最新動態。',
+          journal: '美世日誌',
+          allStories: '全部文章',
+          readMore: '閱讀更多',
+          related: '相關文章',
+          loading: '正在載入文章。',
+          comingSoon: '新文章即將推出。',
+          ctaTitle: '為您的廚房選對抽油煙機',
+          ctaBody: '告訴我們您的烹飪習慣和廚房格局，我們會為您配對合適的 Vesta 抽油煙機，並送上專屬報價。',
+          ctaButton: '獲取抽油煙機報價'
+        }
+      };
+      var blogLang = 'en';
+      try { if (window.localStorage && window.localStorage.getItem(BLOG_LANG_KEY) === 'zh') blogLang = 'zh'; } catch (ignore) {}
+      var postsZh = null;
+      var allPostsCache = [];
+      function blogText(){ return BLOG_TEXT[blogLang]; }
       var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       function formatPostDate(value){
         var parts = String(value || '').split('-');
@@ -2375,7 +2445,7 @@
         blogList.innerHTML = '';
         var note = document.createElement('p');
         note.className = 'blog-status';
-        note.textContent = 'New stories coming soon.';
+        note.textContent = blogText().comingSoon;
         blogList.appendChild(note);
       }
       function escapeHtml(text){
@@ -2392,7 +2462,33 @@
         }
         return slugifyTitle(post && post.title);
       }
-      function buildPost(post, allPosts){
+      function zhEntry(post){
+        if (!postsZh || !post) return null;
+        if (post.id && postsZh[post.id]) return postsZh[post.id];
+        return postsZh[postSlug(post)] || null;
+      }
+      function displayTitle(post){
+        var z = blogLang === 'zh' ? zhEntry(post) : null;
+        return (z && z.title) || post.title || '';
+      }
+      function displayExcerpt(post){
+        var z = blogLang === 'zh' ? zhEntry(post) : null;
+        return (z && z.excerpt) || post.excerpt || '';
+      }
+      function fillBody(el, post){
+        var z = blogLang === 'zh' ? zhEntry(post) : null;
+        if (z && Array.isArray(z.body) && z.body.length) {
+          el.innerHTML = z.body.map(function(paragraph){ return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
+        } else if (post.body_html) {
+          el.innerHTML = post.body_html;
+        } else if (Array.isArray(post.body)) {
+          el.innerHTML = post.body.map(function(paragraph){ return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
+        } else if (typeof post.body === 'string') {
+          el.innerHTML = '<p>' + escapeHtml(post.body) + '</p>';
+        }
+      }
+      function buildCard(post){
+        var slug = postSlug(post);
         var article = document.createElement('article');
         article.className = 'blog-post';
         var figure = document.createElement('figure');
@@ -2400,7 +2496,7 @@
         var img = document.createElement('img');
         if (post.image) {
           img.src = post.image;
-          img.alt = post.title || '';
+          img.alt = displayTitle(post);
         } else {
           figure.classList.add('is-placeholder');
           img.src = appBase.replace(/\/$/, '') + '/assets/mercer-wordmark.jpg';
@@ -2417,76 +2513,30 @@
         time.textContent = formatPostDate(post.date);
         dateLine.appendChild(time);
         overlay.appendChild(dateLine);
-        var slug = postSlug(post);
         var heading = document.createElement('h2');
         heading.className = 'blog-post-title';
         var toggle = document.createElement('a');
         toggle.className = 'blog-toggle';
         toggle.href = '/blog/' + slug;
-        toggle.textContent = post.title || '';
+        toggle.textContent = displayTitle(post);
         heading.appendChild(toggle);
         overlay.appendChild(heading);
         figure.appendChild(overlay);
         article.appendChild(figure);
         var body = document.createElement('div');
         body.className = 'blog-post-body';
-        if (post.excerpt) {
+        var excerptText = displayExcerpt(post);
+        if (excerptText) {
           var excerpt = document.createElement('p');
           excerpt.className = 'blog-post-excerpt';
-          excerpt.textContent = post.excerpt;
+          excerpt.textContent = excerptText;
           body.appendChild(excerpt);
         }
         var readMore = document.createElement('a');
         readMore.className = 'blog-readmore';
         readMore.href = '/blog/' + slug;
-        readMore.textContent = 'Read more';
+        readMore.textContent = blogText().readMore;
         body.appendChild(readMore);
-        var full = document.createElement('div');
-        full.className = 'blog-full';
-        full.hidden = true;
-        var fullBody = document.createElement('div');
-        fullBody.className = 'blog-body';
-        if (post.body_html) fullBody.innerHTML = post.body_html;
-        else if (Array.isArray(post.body)) fullBody.innerHTML = post.body.map(function(paragraph){ return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
-        else if (typeof post.body === 'string') fullBody.innerHTML = '<p>' + escapeHtml(post.body) + '</p>';
-        full.appendChild(fullBody);
-        var cta = document.createElement('div');
-        cta.className = 'blog-post-cta';
-        var dealerLink = document.createElement('a');
-        dealerLink.className = 'button';
-        dealerLink.href = '/dealer';
-        dealerLink.textContent = 'Become a dealer';
-        var quoteLink = document.createElement('a');
-        quoteLink.className = 'button alt';
-        quoteLink.href = QUOTE_URL;
-        quoteLink.target = '_blank';
-        quoteLink.rel = 'noopener';
-        quoteLink.textContent = 'Get a kitchen quote';
-        cta.appendChild(dealerLink);
-        cta.appendChild(quoteLink);
-        full.appendChild(cta);
-        var others = allPosts.filter(function(other){ return other !== post; });
-        if (others.length) {
-          var related = document.createElement('nav');
-          related.className = 'blog-related';
-          related.setAttribute('aria-label', 'Related stories');
-          var relatedTitle = document.createElement('p');
-          relatedTitle.textContent = 'More stories';
-          related.appendChild(relatedTitle);
-          var list = document.createElement('ul');
-          others.forEach(function(other){
-            var item = document.createElement('li');
-            var link = document.createElement('button');
-            link.type = 'button';
-            link.textContent = other.title || '';
-            link.addEventListener('click', function(){ navigateTo('/blog/' + postSlug(other)); });
-            item.appendChild(link);
-            list.appendChild(item);
-          });
-          related.appendChild(list);
-          full.appendChild(related);
-        }
-        body.appendChild(full);
         article.appendChild(body);
         article.setAttribute('data-slug', slug);
         article.addEventListener('click', function(event){
@@ -2494,9 +2544,86 @@
           if (event.target && event.target.closest && event.target.closest('a, button')) return;
           navigateTo('/blog/' + slug);
         });
-        function setExpanded(expanded){ full.hidden = !expanded; }
-        article._expandPost = function(){ setExpanded(true); };
-        article._collapsePost = function(){ setExpanded(false); };
+        return article;
+      }
+      function buildArticle(post, allPosts){
+        var wrap = document.createElement('div');
+        wrap.className = 'blog-article';
+        var kicker = document.createElement('p');
+        kicker.className = 'blog-article-kicker';
+        var time = document.createElement('time');
+        time.setAttribute('datetime', post.date || '');
+        time.textContent = formatPostDate(post.date);
+        kicker.appendChild(time);
+        var sep = document.createElement('span');
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = '\u00B7';
+        kicker.appendChild(sep);
+        var journal = document.createElement('span');
+        journal.textContent = blogText().journal;
+        kicker.appendChild(journal);
+        wrap.appendChild(kicker);
+        var title = document.createElement('h1');
+        title.className = 'blog-article-title';
+        title.textContent = displayTitle(post);
+        wrap.appendChild(title);
+        var hero = document.createElement('figure');
+        hero.className = 'blog-article-hero';
+        var heroImg = document.createElement('img');
+        if (post.image) {
+          heroImg.src = post.image;
+          heroImg.alt = displayTitle(post);
+        } else {
+          hero.classList.add('is-placeholder');
+          heroImg.src = appBase.replace(/\/$/, '') + '/assets/mercer-wordmark.jpg';
+          heroImg.alt = 'Mercer & Co.';
+        }
+        heroImg.loading = 'lazy';
+        hero.appendChild(heroImg);
+        wrap.appendChild(hero);
+        var bodyEl = document.createElement('div');
+        bodyEl.className = 'blog-body';
+        fillBody(bodyEl, post);
+        wrap.appendChild(bodyEl);
+        var cta = document.createElement('div');
+        cta.className = 'consultation-cta blog-article-cta';
+        var ctaText = document.createElement('div');
+        var ctaTitle = document.createElement('h3');
+        ctaTitle.textContent = blogText().ctaTitle;
+        var ctaBody = document.createElement('p');
+        ctaBody.textContent = blogText().ctaBody;
+        ctaText.appendChild(ctaTitle);
+        ctaText.appendChild(ctaBody);
+        cta.appendChild(ctaText);
+        var ctaContacts = document.createElement('div');
+        ctaContacts.className = 'consultation-contacts';
+        var ctaLink = document.createElement('a');
+        ctaLink.className = 'button';
+        ctaLink.href = QUOTE_URL;
+        ctaLink.target = '_blank';
+        ctaLink.rel = 'noopener';
+        ctaLink.textContent = blogText().ctaButton;
+        ctaContacts.appendChild(ctaLink);
+        cta.appendChild(ctaContacts);
+        wrap.appendChild(cta);
+        var others = allPosts.filter(function(other){ return other !== post; });
+        if (others.length) {
+          var related = document.createElement('div');
+          related.className = 'blog-related-v2';
+          var relatedTitle = document.createElement('p');
+          relatedTitle.textContent = blogText().related;
+          related.appendChild(relatedTitle);
+          var grid = document.createElement('div');
+          grid.className = 'blog-related-grid';
+          others.forEach(function(other){ grid.appendChild(buildCard(other)); });
+          related.appendChild(grid);
+          wrap.appendChild(related);
+        }
+        return wrap;
+      }
+      function buildPost(post, allPosts){
+        var article = buildCard(post);
+        article.appendChild(buildArticle(post, allPosts));
         return article;
       }
       function renderBlogPosts(posts){
@@ -2508,6 +2635,7 @@
           if (a.date > b.date) return -1;
           return 0;
         });
+        allPostsCache = valid;
         if (!valid.length) { blogFallback(); return; }
         blogList.innerHTML = '';
         postsBySlug = {};
@@ -2516,13 +2644,56 @@
         renderPostMode();
         applyRouteMeta(currentRoute);
       }
+      function loadPostsZh(){
+        if (postsZh) return Promise.resolve(postsZh);
+        if (typeof fetch !== 'function') { postsZh = {}; return Promise.resolve(postsZh); }
+        return fetch(POSTS_ZH_FEED_URL)
+          .then(function(response){ if (!response.ok) throw new Error('Chinese feed request failed'); return response.json(); })
+          .then(function(data){ postsZh = (data && typeof data === 'object' && !Array.isArray(data)) ? data : {}; return postsZh; })
+          .catch(function(){ postsZh = {}; return postsZh; });
+      }
+      function applyBlogLang(){
+        var t = blogText();
+        var pageTitle = document.getElementById('blogPageTitle');
+        if (pageTitle) pageTitle.textContent = t.pageTitle;
+        var pageIntro = document.getElementById('blogPageIntro');
+        if (pageIntro) pageIntro.textContent = t.pageIntro;
+        var backLink = document.querySelector('#blogBack a');
+        if (backLink) backLink.textContent = '\u2190 ' + t.allStories;
+        document.querySelectorAll('[data-blog-lang]').forEach(function(btn){
+          var active = btn.getAttribute('data-blog-lang') === blogLang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        if (blogList && !allPostsCache.length) {
+          var status = blogList.querySelector('.blog-status');
+          if (status) status.textContent = t.loading;
+        }
+      }
+      function setBlogLang(lang){
+        blogLang = lang === 'zh' ? 'zh' : 'en';
+        try { if (window.localStorage) window.localStorage.setItem(BLOG_LANG_KEY, blogLang); } catch (ignore) {}
+        applyBlogLang();
+        if (blogLang === 'zh' && !postsZh) {
+          loadPostsZh().then(function(){ if (allPostsCache.length) renderBlogPosts(allPostsCache); });
+        } else if (allPostsCache.length) {
+          renderBlogPosts(allPostsCache);
+        }
+      }
+      document.querySelectorAll('[data-blog-lang]').forEach(function(btn){
+        btn.addEventListener('click', function(){ setBlogLang(btn.getAttribute('data-blog-lang')); });
+      });
       function loadBlogPosts(){
         if (!blogList || typeof fetch !== 'function') { if (blogList) blogFallback(); return; }
         fetch(POSTS_FEED_URL)
           .then(function(response){ if (!response.ok) throw new Error('Feed request failed'); return response.json(); })
-          .then(function(data){ renderBlogPosts(Array.isArray(data) ? data : (data && data.posts) || []); })
+          .then(function(data){
+            renderBlogPosts(Array.isArray(data) ? data : (data && data.posts) || []);
+            if (blogLang === 'zh') loadPostsZh().then(function(){ if (allPostsCache.length) renderBlogPosts(allPostsCache); });
+          })
           .catch(function(){ blogFallback(); });
       }
+      applyBlogLang();
       loadBlogPosts();
       initRouter();
     }());
@@ -2603,6 +2774,168 @@
         if (button) ask(button.getAttribute('data-q'));
       });
     }());
+  </script>
+  <script>
+  /* Homepage scroll animation: reveal on scroll plus stat count up.
+     Everything stays fully visible unless this script runs cleanly, arms the
+     page with .rv-on, and observes each target. Any failure disarms the page. */
+  (function(){
+    "use strict";
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* Replay the hero entrance once the welcome popup is dismissed, since the
+       popup covers the hero while the first run plays. */
+    var popup = document.getElementById("welcomePopup");
+    var heroLoadIns = document.querySelectorAll(".hero-copy .load-in");
+    if (!reduced && popup && !popup.hidden && heroLoadIns.length && "MutationObserver" in window) {
+      var heroObserver = new MutationObserver(function(){
+        if (!popup.hidden) return;
+        heroObserver.disconnect();
+        Array.prototype.forEach.call(heroLoadIns, function(el){
+          el.classList.remove("load-in");
+          void el.offsetWidth;
+          el.classList.add("load-in");
+        });
+      });
+      heroObserver.observe(popup, { attributes: true, attributeFilter: ["hidden"] });
+    }
+
+    if (reduced || !("IntersectionObserver" in window)) return;
+
+    var home = document.getElementById("view-home");
+    if (!home) return;
+
+    try {
+      document.documentElement.classList.add("rv-on");
+
+      var jobs = [];
+      function collect(selector, direction, stagger) {
+        Array.prototype.forEach.call(home.querySelectorAll(selector), function(el){
+          jobs.push({ el: el, direction: direction, stagger: stagger || null });
+        });
+      }
+
+      /* Section headers rise as one block */
+      collect(".section-head", "rv-up");
+      /* Stats strip */
+      collect(".facts .fact", "rv-up", "facts-grid");
+      /* Dealer call to action band under the hero */
+      collect(".promo-inner", "rv-up");
+      /* Brand story: images from the left, text from the right */
+      collect("#story .story-image", "rv-up");
+      collect("#story .story-panel.dark", "rv-left");
+      collect("#story .story-panel:not(.dark)", "rv-right");
+      collect("#story .new-york-story-image", "rv-left");
+      collect("#story .new-york-story-copy", "rv-right");
+      /* Catalog: explorer, family heads and product cards rise with a stagger */
+      collect("#products .kitchen-explorer", "rv-up");
+      collect("#products .product-detail-image", "rv-up");
+      collect("#products .catalog-jump", "rv-up");
+      collect("#products .catalog-family-head", "rv-up");
+      collect("#products .catalog-product", "rv-up", "catalog-products");
+      collect("#products .catalog-note", "rv-up");
+      /* Chinese market slider */
+      collect("#market .market-slider", "rv-up");
+      /* Why Vesta */
+      collect("#why-vesta .why-lead", "rv-up");
+      collect("#why-vesta .why-list article", "rv-up", "why-list");
+      /* Certifications */
+      collect("#certifications .section-visual", "rv-up");
+      collect("#certifications .certification-card", "rv-up", "certification-grid");
+      collect("#certifications .nkba-note", "rv-up");
+      /* Consultation services */
+      collect("#services .consultation-step", "rv-up", "consultation-workflow");
+      collect("#services .consultation-subhead", "rv-up");
+      collect("#services .included-item", "rv-up", "included-row");
+      collect("#services .consultation-why", "rv-up");
+      collect("#services .consultation-cta", "rv-up");
+      /* Reviews */
+      collect("#reviews .section-visual", "rv-up");
+      collect("#reviews .reviews-carousel", "rv-up");
+      /* Partnership and dealer call to action */
+      collect("#dealer .section-visual", "rv-up");
+      collect("#dealer .step", "rv-up", "steps");
+      collect("#dealer .dealer-copy", "rv-left");
+      collect("#dealerForm", "rv-right");
+      /* Support */
+      collect("#support .support-item", "rv-up", "support-grid");
+      /* Contact */
+      collect("#contact .contact-visual", "rv-left");
+      collect("#contact .contact-content", "rv-right");
+      collect("#contact .sources", "rv-up");
+
+      /* Stagger: delay by position among siblings in the same parent group */
+      var groupCounts = new Map();
+      jobs.forEach(function(job){
+        job.el.classList.add("rv", job.direction);
+        if (job.stagger && job.el.parentElement) {
+          var count = groupCounts.get(job.el.parentElement) || 0;
+          groupCounts.set(job.el.parentElement, count + 1);
+          job.el.style.transitionDelay = Math.min(count, 5) * 110 + "ms";
+        }
+      });
+
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+      jobs.forEach(function(job){ revealObserver.observe(job.el); });
+
+      /* Opening view sweep: anything within the first two screens is part of
+         the opening view, so it is revealed on load without waiting for a
+         scroll or an observer callback. Deeper content stays observer driven. */
+      function sweepOpeningView(){
+        var limit = (window.innerHeight || 900) * 2;
+        jobs.forEach(function(job){
+          if (job.el.classList.contains("in")) return;
+          var rect = job.el.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < limit) {
+            job.el.classList.add("in");
+            revealObserver.unobserve(job.el);
+          }
+        });
+      }
+      sweepOpeningView();
+      window.addEventListener("load", sweepOpeningView);
+
+      /* Count up the stats strip numbers, keeping any prefix and suffix text
+         such as "Up to " or "+" exactly as written in the current language. */
+      function runCount(el){
+        var text = el.textContent;
+        var match = text.match(/\d[\d,]*/);
+        if (!match) return;
+        var target = parseInt(match[0].replace(/,/g, ""), 10);
+        var prefix = text.slice(0, match.index);
+        var suffix = text.slice(match.index + match[0].length);
+        var duration = 1700, start = null;
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+          el.textContent = prefix + Math.round(target * eased) + suffix;
+          if (p < 1) window.requestAnimationFrame(step);
+        }
+        window.requestAnimationFrame(step);
+      }
+      var countObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            runCount(entry.target);
+            countObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      Array.prototype.forEach.call(home.querySelectorAll(".facts .fact strong"), function(el){
+        countObserver.observe(el);
+      });
+    } catch (err) {
+      document.documentElement.classList.remove("rv-on");
+    }
+  })();
   </script>
 </body>
 </html>
