@@ -960,6 +960,8 @@
     .blog-body h2,.blog-body h3{margin:22px 0 10px}
     .blog-body ul,.blog-body ol{color:var(--muted);margin:0 0 14px;padding-left:20px}
     .blog-body a{color:#071836;font-weight:500;text-decoration-color:#AE8F59;text-underline-offset:4px}
+    .blog-body a.blog-related-link{color:#7A5E2F;font-weight:600;text-decoration:underline;text-decoration-color:#AE8F59;text-underline-offset:4px}
+    .blog-body a.blog-related-link:hover,.blog-body a.blog-related-link:focus-visible{color:#071836}
     .blog-body img{max-width:100%;height:auto;margin:18px 0}
     .blog-cta-band{margin-top:64px}
     /* Blog language switch (grid and article pages) */
@@ -2489,16 +2491,52 @@
         var z = blogLang === 'zh' ? zhEntry(post) : null;
         return (z && z.excerpt) || post.excerpt || '';
       }
+      function relatedReadingHtml(text){
+        var raw = String(text == null ? '' : text);
+        var trimmed = raw.replace(/^\s+/, '');
+        if (trimmed.indexOf('Related reading:') !== 0 && trimmed.indexOf('延伸閱讀：') !== 0) return null;
+        var candidates = [];
+        allPostsCache.forEach(function(other){
+          var title = displayTitle(other);
+          if (title) candidates.push({ title: title, slug: postSlug(other) });
+        });
+        candidates.sort(function(a, b){ return b.title.length - a.title.length; });
+        var segments = [{ text: raw, slug: '' }];
+        candidates.forEach(function(candidate){
+          var next = [];
+          segments.forEach(function(segment){
+            if (segment.slug) { next.push(segment); return; }
+            var rest = segment.text;
+            var idx = rest.indexOf(candidate.title);
+            while (idx !== -1) {
+              if (idx > 0) next.push({ text: rest.slice(0, idx), slug: '' });
+              next.push({ text: candidate.title, slug: candidate.slug });
+              rest = rest.slice(idx + candidate.title.length);
+              idx = rest.indexOf(candidate.title);
+            }
+            if (rest) next.push({ text: rest, slug: '' });
+          });
+          segments = next;
+        });
+        return segments.map(function(segment){
+          var escaped = escapeHtml(segment.text);
+          return segment.slug ? '<a class="blog-related-link" href="/blog/' + segment.slug + '">' + escaped + '</a>' : escaped;
+        }).join('');
+      }
+      function paragraphHtml(text){
+        var linked = relatedReadingHtml(text);
+        return '<p>' + (linked !== null ? linked : escapeHtml(text)) + '</p>';
+      }
       function fillBody(el, post){
         var z = blogLang === 'zh' ? zhEntry(post) : null;
         if (z && Array.isArray(z.body) && z.body.length) {
-          el.innerHTML = z.body.map(function(paragraph){ return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
+          el.innerHTML = z.body.map(paragraphHtml).join('');
         } else if (post.body_html) {
           el.innerHTML = post.body_html;
         } else if (Array.isArray(post.body)) {
-          el.innerHTML = post.body.map(function(paragraph){ return '<p>' + escapeHtml(paragraph) + '</p>'; }).join('');
+          el.innerHTML = post.body.map(paragraphHtml).join('');
         } else if (typeof post.body === 'string') {
-          el.innerHTML = '<p>' + escapeHtml(post.body) + '</p>';
+          el.innerHTML = paragraphHtml(post.body);
         }
       }
       function buildCard(post){
